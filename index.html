@@ -1,0 +1,1095 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Импорт Webkassa: где теряются продажи</title>
+<meta name="description" content="Простыми словами: где импорт продаж из Webkassa теряет чеки, чем это грозит бизнесу, как проверить это на данных и что исправить.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.className = d.className.replace('no-js', 'js');
+    try {
+      var t = window.localStorage.getItem('wk-theme');
+      if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+    } catch (e) { /* storage unavailable */ }
+  })();
+</script>
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="#top">Импорт Webkassa</a>
+    <button type="button" class="icon-btn nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      Разделы
+      <svg class="chev-down" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Разделы страницы">
+      <ul>
+        <li><a href="#summary">Коротко</a></li>
+        <li><a href="#symptoms">Симптомы</a></li>
+        <li><a href="#how">Как работает</a></li>
+        <li><a href="#risks">Где теряются</a></li>
+        <li><a href="#stories">Истории</a></li>
+        <li><a href="#checks">Проверка</a></li>
+        <li><a href="#plan">План</a></li>
+        <li><a href="#glossary">Словарь</a></li>
+        <li><a href="#caveats">Оговорки</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="icon-btn theme-toggle" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg>
+      <span class="visually-hidden">Тёмная тема</span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 1. Hero -->
+  <section class="hero" id="top" aria-labelledby="page-title">
+    <div class="wrap">
+      <h1 id="page-title">Импорт Webkassa: где теряются продажи</h1>
+      <p class="hero-lead">Импорт продаж из Webkassa устроен так, что одна ошибка у одного арендатора может остановить продажи всех брендов. Часть продаж теряется тихо, а суммы для Task занижены. Ниже — как это работает простыми словами, чем грозит бизнесу и что сделать.</p>
+      <p class="hero-meta">
+        <time datetime="2026-11-04">4 ноября 2026</time>
+        <span class="dot" aria-hidden="true">·</span>
+        <span>Внутренний материал. Технические детали — в рабочем документе</span>
+      </p>
+
+      <div class="strip-block">
+        <p class="strip-cap" id="strip-cap">12 слабых мест по приоритету</p>
+        <ol class="strip" aria-labelledby="strip-cap">
+          <li><a class="p-crit" href="#risk-1"><span class="visually-hidden">Ситуация </span>1<span class="visually-hidden">. Плохая смена бросает весь обход. Критично</span></a></li>
+          <li><a class="p-crit" href="#risk-2"><span class="visually-hidden">Ситуация </span>2<span class="visually-hidden">. Отравленная корзина. Критично</span></a></li>
+          <li><a class="p-crit" href="#risk-3"><span class="visually-hidden">Ситуация </span>3<span class="visually-hidden">. Забытая касса. Критично</span></a></li>
+          <li><a class="p-crit" href="#risk-4"><span class="visually-hidden">Ситуация </span>4<span class="visually-hidden">. Пустой статус. Критично</span></a></li>
+          <li><a class="p-high" href="#risk-5"><span class="visually-hidden">Ситуация </span>5<span class="visually-hidden">. Чужой ключ. Высокий</span></a></li>
+          <li><a class="p-high" href="#risk-6"><span class="visually-hidden">Ситуация </span>6<span class="visually-hidden">. Неизвестный бренд. Высокий</span></a></li>
+          <li><a class="p-high" href="#risk-7"><span class="visually-hidden">Ситуация </span>7<span class="visually-hidden">. Ошибки мимо журнала, пароли в журнале. Высокий</span></a></li>
+          <li><a class="p-mid" href="#risk-8"><span class="visually-hidden">Ситуация </span>8<span class="visually-hidden">. Не только продажи. Средний</span></a></li>
+          <li><a class="p-mid" href="#risk-9"><span class="visually-hidden">Ситуация </span>9<span class="visually-hidden">. Ключи выбивают друг друга. Средний</span></a></li>
+          <li><a class="p-mid" href="#risk-10"><span class="visually-hidden">Ситуация </span>10<span class="visually-hidden">. Новое поле в ответе. Средний</span></a></li>
+          <li><a class="p-mid" href="#risk-11"><span class="visually-hidden">Ситуация </span>11<span class="visually-hidden">. Кривая дата. Средний</span></a></li>
+          <li><a class="p-low" href="#risk-12"><span class="visually-hidden">Ситуация </span>12<span class="visually-hidden">. Похожий чек. Низкий</span></a></li>
+        </ol>
+        <ul class="legend" aria-label="Приоритеты">
+          <li><span class="swatch p-crit" aria-hidden="true"></span>Критично · 4</li>
+          <li><span class="swatch p-high" aria-hidden="true"></span>Высокий · 3</li>
+          <li><span class="swatch p-mid" aria-hidden="true"></span>Средний · 4</li>
+          <li><span class="swatch p-low" aria-hidden="true"></span>Низкий · 1</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Summary -->
+  <section class="section" id="summary" aria-labelledby="summary-title">
+    <div class="wrap">
+      <h2 class="section-title" id="summary-title">Коротко для PM</h2>
+      <div class="summary-grid">
+
+        <div class="card span-2">
+          <h3>Что это</h3>
+          <p>Часть арендаторов пробивает чеки через Webkassa — облачную кассу. Раз в 2&nbsp;часа импорт забирает их продажи в книгу продаж ТРЦ (ASSP). По этой книге считаются отчёты и суммы для Task, от которых зависит аренда.</p>
+        </div>
+
+        <div class="card span-2">
+          <h3>Что сломано</h3>
+          <p>В логике импорта 12 слабых мест.</p>
+          <ul class="broken">
+            <li>
+              <span class="big">3</span>
+              могут разом остановить продажи всех брендов на Webkassa. Двум для этого хватает проблемы у одного арендатора, третьему — обновления на стороне Webkassa.
+              <p class="refs-line">Ситуации
+                <a class="ref p-crit" href="#story-1"><span class="visually-hidden">история </span>1</a>
+                <a class="ref p-crit" href="#story-2"><span class="visually-hidden">история </span>2</a>
+                <a class="ref p-mid" href="#story-10"><span class="visually-hidden">история </span>10</a>
+              </p>
+            </li>
+            <li>
+              <span class="big">3</span>
+              теряют продажи тихо, без единой ошибки. Например, новая касса нового арендатора может не опрашиваться никогда.
+              <p class="refs-line">Например, ситуация
+                <a class="ref p-crit" href="#story-3"><span class="visually-hidden">история </span>3</a>
+              </p>
+            </li>
+            <li>
+              <span class="big">1</span>
+              занижает суммы в Task и в части отчётов.
+              <p class="refs-line">Ситуация
+                <a class="ref p-crit" href="#story-4"><span class="visually-hidden">история </span>4</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Чем грозит бизнесу</h3>
+          <ul class="dash-list">
+            <li>Недосчёт выручки в Task и в части отчётов.</li>
+            <li>«Пропавшие» кассы.</li>
+            <li>Ложные подтверждения чеков в промо-акциях.</li>
+            <li>Пароли арендаторов от Webkassa в журналах — записях о работе программы.</li>
+          </ul>
+        </div>
+
+        <div class="card card-warn">
+          <h3>Важная оговорка</h3>
+          <p>В копии кода, которую мы разбирали, этот импорт выключен; живой импорт, по всей видимости, делает отдельный сервис, и в нём, вероятно, та же логика — это нужно подтвердить у его владельцев.</p>
+        </div>
+
+        <div class="card span-2">
+          <h3>Что нужно от PM</h3>
+          <ol class="pm-steps">
+            <li>Спросить владельцев отдельного сервиса импорта — программы, которая, по всей видимости, сейчас делает живой импорт, — та же ли у них логика.
+              <a class="go" href="#stage-0">Этап 0 плана</a></li>
+            <li>Попросить администратора базы данных (DBA) выполнить проверки из раздела «Как проверить». Это только чтение, прод не задевается.
+              <a class="go" href="#checks">К проверкам</a></li>
+            <li>Принять решение по статусу чеков и пересчёту сумм в Task. Статус — графа у каждого чека в книге продаж; без него чек не попадает в Task и в часть отчётов.
+              <a class="go" href="#decisions">Что решить PM</a></li>
+            <li>Поставить в план быстрые исправления из раздела «Что предлагаем сделать».
+              <a class="go" href="#plan">К плану</a></li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Symptoms -->
+  <section class="section" id="symptoms" aria-labelledby="symptoms-title">
+    <div class="wrap">
+      <h2 class="section-title" id="symptoms-title">Что вы увидите и что это значит</h2>
+      <p class="section-lead">Так эти поломки выглядят со стороны. Найдите похожий симптом: под ним — ситуации, которые его вызывают, и проверки, которые это покажут. Номер ведёт к истории ситуации.</p>
+
+      <ul class="symptoms">
+
+        <li class="card symptom">
+          <h3><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Продажи Webkassa пропали сразу у всех брендов</h3>
+          <p class="causes-label">Возможные причины</p>
+          <ul class="causes">
+            <li><a class="cause-link" href="#story-1"><span class="num p-crit">1</span><span class="cause-name">Плохая смена бросает весь обход</span></a>
+              <p class="cause-hint">Обход обрывается на смене одного бренда: например, его учётку Webkassa (логин и пароль) отключили или Webkassa сбоит. Понятной причины в журнале нет.</p></li>
+            <li><a class="cause-link" href="#story-2"><span class="num p-crit">2</span><span class="cause-name">Отравленная корзина</span></a>
+              <p class="cause-hint">Продажи пропадают у всех с какого-то момента, хотя сервис работает: один чек не записывается и срывает все следующие.</p></li>
+            <li><a class="cause-link" href="#story-10"><span class="num p-mid">10</span><span class="cause-name">Новое поле в ответе</span></a>
+              <p class="cause-hint">Импорт молча встаёт у всех брендов в день, когда Webkassa обновила формат ответа.</p></li>
+          </ul>
+          <p class="symptom-checks">Как проверить: проверки <a href="#check-1"><span class="visually-hidden">проверка </span>1</a>, <a href="#check-2"><span class="visually-hidden">проверка </span>2</a>, <a href="#check-3"><span class="visually-hidden">проверка </span>3</a> и <a href="#check-9"><span class="visually-hidden">проверка </span>9</a></p>
+        </li>
+
+        <li class="card symptom">
+          <h3><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>У бренда пропала часть выручки или «дыры» по дням</h3>
+          <p class="causes-label">Возможные причины</p>
+          <ul class="causes">
+            <li><a class="cause-link" href="#story-1"><span class="num p-crit">1</span><span class="cause-name">Плохая смена бросает весь обход</span></a>
+              <p class="cause-hint">Арендатор просто сменил пароль Webkassa, а учётку никто не трогал: скорее всего, застревают только его собственные смены.</p></li>
+            <li><a class="cause-link" href="#story-3"><span class="num p-crit">3</span><span class="cause-name">Забытая касса</span></a>
+              <p class="cause-hint">Арендатор говорит «у нас две кассы», а в отчётах чеки только с одной.</p></li>
+            <li><a class="cause-link" href="#story-5"><span class="num p-high">5</span><span class="cause-name">Чужой ключ</span></a>
+              <p class="cause-hint">«Дыры» в отдельные дни или по отдельной кассе: ленту смены просят чужим ключом — логином и паролем от другого кабинета того же бренда.</p></li>
+            <li><a class="cause-link" href="#story-6"><span class="num p-high">6</span><span class="cause-name">Неизвестный бренд</span></a>
+              <p class="cause-hint">У ушедших арендаторов последние смены не дописываются никогда: бренда уже нет в справочнике брендов — сервисе, где хранятся названия брендов и их номера в Task.</p></li>
+            <li><a class="cause-link" href="#story-11"><span class="num p-mid">11</span><span class="cause-name">Кривая дата</span></a>
+              <p class="cause-hint">«Дыра» в конце смены, обычно это вечерние чеки.</p></li>
+            <li><a class="cause-link" href="#story-12"><span class="num p-low">12</span><span class="cause-name">Похожий чек</span></a>
+              <p class="cause-hint">Очень редкая потеря отдельных чеков у брендов с несколькими кассами.</p></li>
+          </ul>
+          <p class="symptom-checks">Как проверить: проверки <a href="#check-2"><span class="visually-hidden">проверка </span>2</a>, <a href="#check-4"><span class="visually-hidden">проверка </span>4</a>, <a href="#check-7"><span class="visually-hidden">проверка </span>7</a> и <a href="#check-8"><span class="visually-hidden">проверка </span>8</a></p>
+        </li>
+
+        <li class="card symptom">
+          <h3><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Суммы в Task ниже, чем показывает касса; разные экраны показывают разное</h3>
+          <p class="causes-label">Причина</p>
+          <ul class="causes">
+            <li><a class="cause-link" href="#story-4"><span class="num p-crit">4</span><span class="cause-name">Пустой статус</span></a>
+              <p class="cause-hint">Занижение или нули в Task и в части отчётов у брендов на Webkassa: чеки лежат в книге без статуса, и эти расчёты их пропускают.</p></li>
+          </ul>
+          <p class="symptom-checks">Как проверить: проверка <a href="#check-5"><span class="visually-hidden">проверка </span>5</a> — она же покажет, сколько денег не видно</p>
+        </li>
+
+        <li class="card symptom">
+          <h3><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>В промо-акции подтвердился чек, которого не было</h3>
+          <p class="causes-label">Причина</p>
+          <ul class="causes">
+            <li><a class="cause-link" href="#story-8"><span class="num p-mid">8</span><span class="cause-name">Не только продажи</span></a>
+              <p class="cause-hint">Внесения, изъятия и покупки записываются в книгу как продажи, и проверка промо-чеков может принять их за настоящий чек.</p></li>
+          </ul>
+          <p class="symptom-checks">Как проверить: проверка <a href="#check-6"><span class="visually-hidden">проверка </span>6</a></p>
+        </li>
+
+        <li class="card symptom">
+          <h3><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>У арендатора отваливается его собственная программа Webkassa</h3>
+          <p class="causes-label">Причина</p>
+          <ul class="causes">
+            <li><a class="cause-link" href="#story-9"><span class="num p-mid">9</span><span class="cause-name">Ключи выбивают друг друга</span></a>
+              <p class="cause-hint">Импорт входит в Webkassa тем же логином и выкидывает арендатора. Заодно сам импорт молча пропускает смены.</p></li>
+          </ul>
+          <p class="symptom-checks">Как проверить: проверки <a href="#check-2"><span class="visually-hidden">проверка </span>2</a> и <a href="#check-7"><span class="visually-hidden">проверка </span>7</a></p>
+        </li>
+
+        <li class="card symptom">
+          <h3><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Логины и пароли арендаторов видны в журналах</h3>
+          <p class="causes-label">Причина</p>
+          <ul class="causes">
+            <li><a class="cause-link" href="#story-7"><span class="num p-high">7</span><span class="cause-name">Ошибки мимо журнала, пароли в журнале</span></a>
+              <p class="cause-hint">Логины и пароли арендаторов попадают в журналы — это утечка, их нужно убрать и почистить журналы. А при сбое по журналу нельзя понять, что случилось.</p></li>
+          </ul>
+          <p class="symptom-checks">Как проверить: проверка <a href="#check-9"><span class="visually-hidden">проверка </span>9</a></p>
+        </li>
+
+        <li class="card symptom">
+          <h3><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Продажи приходят с опозданием</h3>
+          <p class="causes-label">Причина</p>
+          <ul class="causes">
+            <li><a class="cause-link" href="#story-6"><span class="num p-high">6</span><span class="cause-name">Неизвестный бренд</span></a>
+              <p class="cause-hint">Справочник брендов временно не отвечает, и смены откладываются до следующего обхода: продажи приходят с опозданием на 2&nbsp;часа.</p></li>
+          </ul>
+          <p class="symptom-checks">Как проверить: проверки <a href="#check-2"><span class="visually-hidden">проверка </span>2</a> и <a href="#check-9"><span class="visually-hidden">проверка </span>9</a></p>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. How it works -->
+  <section class="section" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <h2 class="section-title" id="how-title">Как работает импорт: бухгалтер, тетрадь и корзина</h2>
+      <p class="section-lead">Представьте бухгалтера, который каждые два часа обходит кассы арендаторов на Webkassa и переписывает их чеки в общую книгу продаж ТРЦ.</p>
+
+      <h3 class="sub-title" id="roles-title">Кто есть кто</h3>
+      <div class="table-wrap" role="region" aria-labelledby="roles-title" tabindex="0">
+        <table>
+          <thead>
+            <tr><th scope="col">В истории</th><th scope="col">В системе</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Бухгалтер</th><td>Импорт Webkassa в ASSP</td></tr>
+            <tr><th scope="row">Ключ</th><td>Учётка Webkassa: логин и пароль арендатора, которые хранит ASSP</td></tr>
+            <tr><th scope="row">Список касс</th><td>Таблица касс, которые знает ASSP</td></tr>
+            <tr><th scope="row">Тетрадь смен</th><td>Таблица закрытых смен: какие уже переписаны, а какие ещё нет</td></tr>
+            <tr><th scope="row">Лента смены</th><td>Отчёт Webkassa со всеми операциями одной смены</td></tr>
+            <tr><th scope="row">Корзина</th><td>Общий список чеков в памяти программы</td></tr>
+            <tr><th scope="row">Книга продаж</th><td>Таблицы продаж ASSP. По ним строятся отчёты и суммы для Task</td></tr>
+            <tr><th scope="row">Справочник брендов</th><td>Отдельный сервис с данными брендов: название и номер в Task</td></tr>
+            <tr><th scope="row">Галочка</th><td>Отметка «смена переписана»</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-title">Обычный обход</h3>
+      <ol class="walk">
+        <li>Бухгалтер открывает тетрадь и выписывает все смены без галочки.</li>
+        <li>Для каждой смены берёт ключ бренда, входит в кабинет Webkassa и просит ленту этой смены.</li>
+        <li>Чеки с ленты складывает в корзину, а корзину высыпает в книгу продаж.</li>
+        <li>Вытряхивает корзину, ставит смене галочку и берётся за следующую.</li>
+      </ol>
+      <p class="walk-extra">Кроме того, каждые два часа он обновляет список касс и вписывает в тетрадь новые закрытые смены.</p>
+
+      <h3 class="sub-title">Три привычки, из-за которых теряются продажи</h3>
+      <ol class="habits">
+        <li class="card habit">
+          <span class="habit-n">Привычка 1</span>
+          <h4>Защиту от ошибок он включает поздно.</h4>
+          <p>Ключ ищет и в кабинет входит ещё без неё. Если ключа нет или Webkassa сбоит, он бросает весь обход, а не одну смену.</p>
+        </li>
+        <li class="card habit">
+          <span class="habit-n">Привычка 2</span>
+          <h4>Корзина у него одна на все смены.</h4>
+          <p>Вытряхивает он её только после удачной записи. Один чек, который не записывается, остаётся в корзине и срывает все следующие записи.</p>
+        </li>
+        <li class="card habit">
+          <span class="habit-n">Привычка 3</span>
+          <h4>Результат он не проверяет.</h4>
+          <p>Галочку ставит и на пустую ленту. Графу «статус» в книге оставляет пустой. А статус кассы записывает один раз, при первой встрече, и больше не обновляет.</p>
+        </li>
+      </ol>
+
+      <!-- Diagram -->
+      <figure class="diagram" aria-labelledby="dg-title">
+        <figcaption class="diagram-cap">
+          <span class="diagram-title" id="dg-title">Обход ломается в трёх местах: вход, корзина, галочка</span>
+          <span class="diagram-sub">Каждые 2&nbsp;часа, по очереди для каждой смены без галочки</span>
+        </figcaption>
+        <div class="dg">
+          <div class="dg-step dg-s1"><span class="dg-num" aria-hidden="true">1</span><span><span class="dg-name"><span class="visually-hidden">Шаг 1. </span>Тетрадь смен</span><span class="dg-desc">выписать смены без галочки</span></span></div>
+          <div class="dg-arrow dg-a1" aria-hidden="true"></div>
+          <div class="dg-step dg-s2 is-hit"><span class="dg-num" aria-hidden="true">2</span><span><span class="dg-name"><span class="visually-hidden">Шаг 2. </span>Ключ и вход в Webkassa</span><span class="dg-desc">ключ бренда → пропуск (токен)</span></span></div>
+          <div class="dg-link dg-c1" aria-hidden="true"></div>
+          <div class="dg-note dg-n1"><span class="dg-note-title">Привычка 1: защита включается поздно</span><span class="dg-note-text">Нет активного ключа или Webkassa сбоит — брошен весь обход, а не одна смена</span></div>
+          <div class="dg-arrow dg-a2" aria-hidden="true"></div>
+          <div class="dg-step dg-s3"><span class="dg-num" aria-hidden="true">3</span><span><span class="dg-name"><span class="visually-hidden">Шаг 3. </span>Лента смены → корзина</span><span class="dg-desc">все чеки смены — в корзину</span></span></div>
+          <div class="dg-arrow dg-a3" aria-hidden="true"></div>
+          <div class="dg-step dg-s4 is-hit"><span class="dg-num" aria-hidden="true">4</span><span><span class="dg-name"><span class="visually-hidden">Шаг 4. </span>Корзина → книга продаж</span><span class="dg-desc">чеки записываются в книгу</span></span></div>
+          <div class="dg-link dg-c2" aria-hidden="true"></div>
+          <div class="dg-note dg-n2"><span class="dg-note-title">Привычка 2: одна корзина на все смены</span><span class="dg-note-text">Вытряхивается только после удачной записи, и один плохой чек срывает все следующие</span></div>
+          <div class="dg-arrow dg-a4" aria-hidden="true"></div>
+          <div class="dg-step dg-s5 is-hit"><span class="dg-num" aria-hidden="true">5</span><span><span class="dg-name"><span class="visually-hidden">Шаг 5. </span>Галочка</span><span class="dg-desc">смена отмечена как переписанная</span></span></div>
+          <div class="dg-link dg-c3" aria-hidden="true"></div>
+          <div class="dg-note dg-n3"><span class="dg-note-title">Привычка 3: результат не проверяется</span><span class="dg-note-text">Галочка ставится и на пустую ленту, а графа «статус» в книге остаётся пустой</span></div>
+          <div class="dg-loop dg-lA" aria-hidden="true"></div>
+          <div class="dg-loop dg-lB" aria-hidden="true"><span>следующая смена</span></div>
+          <div class="dg-loop dg-lC" aria-hidden="true"></div>
+        </div>
+        <p class="visually-hidden">После шага 5 бухгалтер берёт следующую смену и снова идёт к шагу 2.</p>
+        <p class="diagram-note">Обход идёт сверху вниз и повторяется для каждой смены. Красным — три привычки, рядом с шагами, на которых они срабатывают.</p>
+      </figure>
+
+      <p class="sim-intro">Ниже то же самое можно пройти по шагам. Первая привычка срабатывает в истории 1, вторая — в историях 2 и 11, третья — в историях 4 и 5. Забытой кассы (3) в симуляции нет: её смены не попадают даже в тетрадь.</p>
+
+      <!-- Simulation -->
+      <div class="sim" id="sim" role="region" tabindex="-1" aria-labelledby="sim-title" aria-describedby="sim-keys">
+        <div class="sim-top">
+          <h3 class="sim-title" id="sim-title">Обход по шагам: что происходит с тетрадью, корзиной и книгой</h3>
+          <a class="sim-return" data-sim="return" hidden><span aria-hidden="true">←</span> Вернуться к истории <span data-sim="return-n"></span></a>
+        </div>
+        <p class="sim-hint">Выберите историю и листайте шаги. Число на кнопке — номер ситуации в разделе «Где теряются продажи».</p>
+        <p class="visually-hidden" id="sim-keys">Стрелки влево и вправо на клавиатуре тоже листают шаги.</p>
+        <div class="sim-pills" role="group" aria-label="Истории" data-sim="pills"></div>
+        <div class="sim-panels">
+          <div class="sim-panel sim-panel-wide">
+            <p class="sim-panel-head">Тетрадь смен</p>
+            <div data-sim="rows"></div>
+          </div>
+          <div class="sim-panel sim-panel-chips">
+            <p class="sim-panel-head">Корзина</p>
+            <div data-sim="basket"></div>
+          </div>
+          <div class="sim-panel sim-panel-chips">
+            <p class="sim-panel-head">Книга продаж</p>
+            <div data-sim="book"></div>
+          </div>
+        </div>
+        <div class="sim-nav">
+          <button type="button" class="btn" data-sim="back"><span aria-hidden="true">←</span> Назад</button>
+          <span class="sim-count" data-sim="count">Шаг 1 из 5</span>
+          <button type="button" class="btn sim-next" data-sim="next">Дальше <span aria-hidden="true">→</span></button>
+        </div>
+        <div class="sim-live" aria-live="polite" aria-atomic="true">
+          <span class="visually-hidden" data-sim="live-count"></span>
+          <p class="sim-note" data-sim="note" hidden></p>
+          <p class="sim-text" data-sim="text"></p>
+        </div>
+        <noscript><p class="small-note">Симуляция работает, когда в браузере включён JavaScript.</p></noscript>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Risk board -->
+  <section class="section" id="risks" aria-labelledby="risks-title">
+    <div class="wrap">
+      <h2 class="section-title" id="risks-title">Где теряются продажи</h2>
+      <p class="section-lead">Слабых мест 12: четыре критичных, три высоких, четыре средних и одно низкое. Подробная история каждого — в следующем разделе, под тем же номером.</p>
+
+      <div class="board">
+
+        <div class="board-col">
+          <h3 class="board-head"><span class="prio p-crit">Критично</span><span class="board-range">ситуации 1–4</span></h3>
+          <ol class="board-cards">
+            <li class="risk p-crit" id="risk-1">
+              <h4 class="risk-title"><span class="num p-crit">1</span><span>Плохая смена бросает весь обход</span></h4>
+              <dl class="facts">
+                <dt>Что происходит</dt><dd>Ошибка у одного бренда (отключённый ключ, сбой Webkassa) обрывает весь обход</dd>
+                <dt>Чем грозит</dt><dd>Продажи всех брендов на Webkassa перестают приходить</dd>
+                <dt>Насколько вероятно</dt><dd>Высокая: хватит одного бренда с отключённой учёткой и сменой без галочки</dd>
+              </dl>
+              <a class="more" href="#story-1">История 1 <span aria-hidden="true">→</span></a>
+            </li>
+            <li class="risk p-crit" id="risk-2">
+              <h4 class="risk-title"><span class="num p-crit">2</span><span>Отравленная корзина</span></h4>
+              <dl class="facts">
+                <dt>Что происходит</dt><dd>Один чек не записался в книгу, корзина не очищается, все следующие записи срываются</dd>
+                <dt>Чем грозит</dt><dd>Новые продажи всех брендов не попадают в книгу, пока чек не уберут вручную</dd>
+                <dt>Насколько вероятно</dt><dd>Средняя: нужен один чек, который не удаётся записать</dd>
+              </dl>
+              <a class="more" href="#story-2">История 2 <span aria-hidden="true">→</span></a>
+            </li>
+            <li class="risk p-crit" id="risk-3">
+              <h4 class="risk-title"><span class="num p-crit">3</span><span>Забытая касса</span></h4>
+              <dl class="facts">
+                <dt>Что происходит</dt><dd>Касса, которую впервые увидели неактивной, не опрашивается никогда</dd>
+                <dt>Чем грозит</dt><dd>Продажи этой кассы не учитываются совсем</dd>
+                <dt>Насколько вероятно</dt><dd>Высокая: так выглядит каждая новая касса</dd>
+              </dl>
+              <a class="more" href="#story-3">История 3 <span aria-hidden="true">→</span></a>
+            </li>
+            <li class="risk p-crit" id="risk-4">
+              <h4 class="risk-title"><span class="num p-crit">4</span><span>Пустой статус</span></h4>
+              <dl class="facts">
+                <dt>Что происходит</dt><dd>Чеки пишутся без статуса, Task и часть отчётов их не видят</dd>
+                <dt>Чем грозит</dt><dd>Занижены суммы в Task и в части отчётов</dd>
+                <dt>Насколько вероятно</dt><dd>Высокая: касается всех чеков Webkassa</dd>
+              </dl>
+              <a class="more" href="#story-4">История 4 <span aria-hidden="true">→</span></a>
+            </li>
+          </ol>
+        </div>
+
+        <div class="board-col">
+          <h3 class="board-head"><span class="prio p-high">Высокий</span><span class="board-range">ситуации 5–7</span></h3>
+          <ol class="board-cards">
+            <li class="risk p-high" id="risk-5">
+              <h4 class="risk-title"><span class="num p-high">5</span><span>Чужой ключ</span></h4>
+              <dl class="facts">
+                <dt>Что происходит</dt><dd>Ленту смены просят ключом другого кабинета того же бренда</dd>
+                <dt>Чем грозит</dt><dd>Смена висит вечно или закрывается пустой</dd>
+                <dt>Насколько вероятно</dt><dd>Есть у брендов с двумя кабинетами</dd>
+              </dl>
+              <a class="more" href="#story-5">История 5 <span aria-hidden="true">→</span></a>
+            </li>
+            <li class="risk p-high" id="risk-6">
+              <h4 class="risk-title"><span class="num p-high">6</span><span>Неизвестный бренд</span></h4>
+              <dl class="facts">
+                <dt>Что происходит</dt><dd>Справочник брендов не ответил, смена откладывается</dd>
+                <dt>Чем грозит</dt><dd>Опоздание данных, а у удалённых брендов — потеря</dd>
+                <dt>Насколько вероятно</dt><dd>Средняя</dd>
+              </dl>
+              <a class="more" href="#story-6">История 6 <span aria-hidden="true">→</span></a>
+            </li>
+            <li class="risk p-high" id="risk-7">
+              <h4 class="risk-title"><span class="num p-high">7</span><span>Ошибки мимо журнала, пароли в журнале</span></h4>
+              <dl class="facts">
+                <dt>Что происходит</dt><dd>Сбои не видны, а логины и пароли арендаторов попадают в журнал</dd>
+                <dt>Чем грозит</dt><dd>Долгие разборы инцидентов, утечка паролей</dd>
+                <dt>Насколько вероятно</dt><dd>Высокая</dd>
+              </dl>
+              <a class="more" href="#story-7">История 7 <span aria-hidden="true">→</span></a>
+            </li>
+          </ol>
+        </div>
+
+        <div class="board-col">
+          <h3 class="board-head"><span class="prio p-mid">Средний</span><span class="board-range">ситуации 8–11</span></h3>
+          <ol class="board-cards">
+            <li class="risk p-mid" id="risk-8">
+              <h4 class="risk-title"><span class="num p-mid">8</span><span>Не только продажи</span></h4>
+              <dl class="facts">
+                <dt>Что происходит</dt><dd>Внесения, изъятия и покупки записываются как продажи</dd>
+                <dt>Чем грозит</dt><dd>Ложные подтверждения чеков в промо-акциях</dd>
+                <dt>Насколько вероятно</dt><dd>Средняя</dd>
+              </dl>
+              <a class="more" href="#story-8">История 8 <span aria-hidden="true">→</span></a>
+            </li>
+            <li class="risk p-mid" id="risk-9">
+              <h4 class="risk-title"><span class="num p-mid">9</span><span>Ключи выбивают друг друга</span></h4>
+              <dl class="facts">
+                <dt>Что происходит</dt><dd>Каждый вход в Webkassa сбрасывает другие сессии того же логина</dd>
+                <dt>Чем грозит</dt><dd>Пропуски смен, сбои у самого арендатора</dd>
+                <dt>Насколько вероятно</dt><dd>Если логин общий</dd>
+              </dl>
+              <a class="more" href="#story-9">История 9 <span aria-hidden="true">→</span></a>
+            </li>
+            <li class="risk p-mid" id="risk-10">
+              <h4 class="risk-title"><span class="num p-mid">10</span><span>Новое поле в ответе</span></h4>
+              <dl class="facts">
+                <dt>Что происходит</dt><dd>Любое обновление формата ответа Webkassa останавливает импорт</dd>
+                <dt>Чем грозит</dt><dd>Тихая остановка у всех</dd>
+                <dt>Насколько вероятно</dt><dd>Низкая, но непредсказуемая</dd>
+              </dl>
+              <a class="more" href="#story-10">История 10 <span aria-hidden="true">→</span></a>
+            </li>
+            <li class="risk p-mid" id="risk-11">
+              <h4 class="risk-title"><span class="num p-mid">11</span><span>Кривая дата</span></h4>
+              <dl class="facts">
+                <dt>Что происходит</dt><dd>Чек с непонятной датой обрывает смену на середине</dd>
+                <dt>Чем грозит</dt><dd>Конец смены не учитывается</dd>
+                <dt>Насколько вероятно</dt><dd>Низкая: формат дат стабилен</dd>
+              </dl>
+              <a class="more" href="#story-11">История 11 <span aria-hidden="true">→</span></a>
+            </li>
+          </ol>
+        </div>
+
+        <div class="board-col">
+          <h3 class="board-head"><span class="prio p-low">Низкий</span><span class="board-range">ситуация 12</span></h3>
+          <ol class="board-cards">
+            <li class="risk p-low" id="risk-12">
+              <h4 class="risk-title"><span class="num p-low">12</span><span>Похожий чек</span></h4>
+              <dl class="facts">
+                <dt>Что происходит</dt><dd>Чек с тем же номером в ту же секунду с другой кассы считается дублем</dd>
+                <dt>Чем грозит</dt><dd>Редкая потеря отдельных чеков</dd>
+                <dt>Насколько вероятно</dt><dd>Низкая</dd>
+              </dl>
+              <a class="more" href="#story-12">История 12 <span aria-hidden="true">→</span></a>
+            </li>
+          </ol>
+        </div>
+
+      </div>
+
+      <p class="good-note"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 12.5l2.6 2.6L16 9.7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Проверили и сняли ещё одно подозрение: длинная смена не обрезается, Webkassa отдаёт ленту смены целиком.</span></p>
+    </div>
+  </section>
+
+  <!-- 6. Stories -->
+  <section class="section" id="stories" aria-labelledby="stories-title">
+    <div class="wrap">
+      <h2 class="section-title" id="stories-title">Истории: что происходит на самом деле</h2>
+      <p class="section-lead">Во всех историях три арендатора на Webkassa: Кофейня, Обувь и Цветы. У каждого своя касса, своя смена и свой ключ от кабинета в Webkassa. Истории 1, 2, 4, 5 и 11 можно пройти по шагам в симуляции из раздела «Как работает импорт».</p>
+
+      <div class="story-tools">
+        <button type="button" class="btn btn-quiet" data-stories="open">Раскрыть все</button>
+        <button type="button" class="btn btn-quiet" data-stories="close">Свернуть все</button>
+      </div>
+
+      <div class="stories">
+
+        <details class="story" id="story-1">
+          <summary><span class="num p-crit">1</span><span class="story-title">Плохая смена бросает весь обход</span><span class="prio p-crit">Критично</span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="story-body">
+            <p>Арендатор «Обувь» съехал, и его учётку Webkassa в ASSP отключили. Но в тетради осталась его последняя смена без галочки. На ближайшем обходе бухгалтер переписывает Кофейню и берётся за эту смену. Ключ к ней он ищет ещё без защиты от ошибок.</p>
+            <p>Ключа нет, и бухгалтер бросает весь обход, а не одну смену. До Цветов он не доходит. Через два часа всё повторяется: смена Обуви всё ещё без галочки, и бухгалтер снова на ней спотыкается. Всё, что стоит в тетради после неё, не переписывается.</p>
+            <p>Пока кто-то не уберёт эту смену вручную или не вернёт учётку, новые продажи Webkassa не приходят почти ни у кого. То же происходит, пока Webkassa сбоит или ведёт техработы. А если арендатор просто сменил пароль и учётку никто не трогал, скорее всего, застревают только его собственные смены.</p>
+            <p class="seen"><strong>Что увидят:</strong> продажи всех брендов на Webkassa перестают появляться в отчётах. Понятной причины в журнале нет.</p>
+            <div class="story-foot">
+              <button type="button" class="btn btn-accent" data-scenario="stop">Пройти по шагам<span class="visually-hidden"> — история 1 в симуляции</span></button>
+              <p><strong>Как проверить:</strong> проверки <a href="#check-1"><span class="visually-hidden">проверка </span>1</a>, <a href="#check-2"><span class="visually-hidden">проверка </span>2</a>, <a href="#check-3"><span class="visually-hidden">проверка </span>3</a> и <a href="#check-9"><span class="visually-hidden">проверка </span>9</a>.</p>
+              <p><strong>Что исправить</strong> (<a href="#stage-1">этап 1</a>): защита от ошибок на всю смену целиком — сбой одной смены пропускает её, а не весь обход.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="story" id="story-2">
+          <summary><span class="num p-crit">2</span><span class="story-title">Отравленная корзина</span><span class="prio p-crit">Критично</span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="story-body">
+            <p>В смене Кофейни есть чек, который книга продаж не принимает ни с одной попытки: например, в нём нет суммы. Бухгалтер высыпает корзину в книгу: первый чек записан, на втором ошибка. Смену он бросает, но корзину не вытряхивает: это делается только после удачной записи.</p>
+            <p>Чеки Обуви ложатся в ту же корзину, поверх старых. Бухгалтер снова высыпает её с начала и снова спотыкается о тот же чек. Так повторяется с каждой сменой и каждым обходом: в книгу не попадает ни одного нового чека, ни у кого.</p>
+            <p>Даже перезапуск сервиса не помогает. Корзина опустеет, но смена Кофейни всё ещё без галочки, и на ближайшем обходе тот же чек снова попадёт в корзину.</p>
+            <p class="seen"><strong>Что увидят:</strong> продажи Webkassa пропадают у всех с какого-то момента. Сервис при этом работает, понятных ошибок в журнале нет.</p>
+            <div class="story-foot">
+              <button type="button" class="btn btn-accent" data-scenario="poison">Пройти по шагам<span class="visually-hidden"> — история 2 в симуляции</span></button>
+              <p><strong>Как проверить:</strong> проверки <a href="#check-1"><span class="visually-hidden">проверка </span>1</a>, <a href="#check-2"><span class="visually-hidden">проверка </span>2</a> и <a href="#check-9"><span class="visually-hidden">проверка </span>9</a>.</p>
+              <p><strong>Что исправить</strong> (<a href="#stage-1">этап 1</a>): своя корзина на каждую смену, которая очищается всегда, даже после ошибки.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="story" id="story-3">
+          <summary><span class="num p-crit">3</span><span class="story-title">Забытая касса</span><span class="prio p-crit">Критично</span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="story-body">
+            <p>Обувь открыла вторую кассу. В пятницу её завели в Webkassa, но ещё не активировали: у новой кассы статус «создана». В этот же день бухгалтер впервые её увидел и записал в список с пометкой «не работает». Пометку он больше не обновляет.</p>
+            <p>В понедельник кассу активировали, и она начала пробивать чеки. Но бухгалтер ходит только к кассам с пометкой «работает» и к ней не подойдёт никогда. Так же забывается касса, которую в первый день временно заблокировал ОФД — оператор, через которого чеки уходят в налоговую.</p>
+            <p class="seen"><strong>Что увидят:</strong> у бренда пропадает часть выручки. Арендатор говорит «у нас две кассы», а в отчётах чеки только с одной.</p>
+            <div class="story-foot">
+              <p><strong>Как проверить:</strong> проверка <a href="#check-4"><span class="visually-hidden">проверка </span>4</a>.</p>
+              <p><strong>Что исправить</strong> (<a href="#stage-1">этап 1</a>): обновлять статус кассы на каждом обходе, а не только при первой встрече.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="story" id="story-4">
+          <summary><span class="num p-crit">4</span><span class="story-title">Пустой статус</span><span class="prio p-crit">Критично</span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="story-body">
+            <p>Бухгалтер записывает чеки Webkassa в книгу, но графу «статус» оставляет пустой. Суммы для Task и часть отчётов берут только строки с заполненным статусом; пустую графу пропускают.</p>
+            <p>Пример: Кофейня продала за октябрь на 1&nbsp;000&nbsp;000&nbsp;₸, всё через Webkassa. Экран кассира покажет 1&nbsp;000&nbsp;000, а отчёт по дням и сумма в Task — ноль.</p>
+            <p class="seen"><strong>Что увидят:</strong> занижение или нули в Task и в части отчётов у брендов на Webkassa. Разные экраны показывают разные суммы.</p>
+            <div class="story-foot">
+              <button type="button" class="btn btn-accent" data-scenario="status">Пройти по шагам<span class="visually-hidden"> — история 4 в симуляции</span></button>
+              <p><strong>Как проверить:</strong> проверка <a href="#check-5"><span class="visually-hidden">проверка </span>5</a>.</p>
+              <p><strong>Что исправить</strong> (<a href="#stage-1">этап 1</a>): ставить статус чекам Webkassa — то же значение, что у других источников. Решение по старым чекам — за PM.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="story" id="story-5">
+          <summary><span class="num p-high">5</span><span class="story-title">Чужой ключ</span><span class="prio p-high">Высокий</span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="story-body">
+            <p>У Цветов два кабинета в Webkassa, старый и новый, в каждом своя касса. Ленту смены бухгалтер просит первым попавшимся ключом бренда, а не ключом того кабинета, где стоит касса. Webkassa либо отказывает, и смена висит вечно, либо отдаёт пустую ленту.</p>
+            <p>Во втором случае бухгалтер ставит галочку на пустой смене. Чеки этой смены потеряны, и никакой ошибки нигде нет.</p>
+            <p class="seen"><strong>Что увидят:</strong> у бренда «дыры» в отдельные дни или по отдельной кассе.</p>
+            <div class="story-foot">
+              <button type="button" class="btn btn-accent" data-scenario="empty">Пройти по шагам<span class="visually-hidden"> — история 5 в симуляции</span></button>
+              <p><strong>Как проверить:</strong> проверки <a href="#check-2"><span class="visually-hidden">проверка </span>2</a>, <a href="#check-7"><span class="visually-hidden">проверка </span>7</a> и <a href="#check-8"><span class="visually-hidden">проверка </span>8</a>.</p>
+              <p><strong>Что исправить</strong> (<a href="#stage-2">этап 2</a>): просить ленту смены ключом той учётки, к которой привязана касса.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="story" id="story-6">
+          <summary><span class="num p-high">6</span><span class="story-title">Неизвестный бренд</span><span class="prio p-high">Высокий</span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="story-body">
+            <p>Для каждого чека бухгалтер заглядывает в справочник брендов, чтобы вписать номер договора. Если справочник не отвечает или бренда в нём нет, бухгалтер спотыкается на первом же чеке и откладывает смену.</p>
+            <p>Справочник временно лежит — продажи приходят с опозданием на 2&nbsp;часа. Бренд удалили из справочника, например арендатор съехал, — его последние смены не перепишутся никогда.</p>
+            <p class="seen"><strong>Что увидят:</strong> задержки данных при сбоях справочника и «вечные» недописанные смены у ушедших арендаторов.</p>
+            <div class="story-foot">
+              <p><strong>Как проверить:</strong> проверки <a href="#check-2"><span class="visually-hidden">проверка </span>2</a> и <a href="#check-9"><span class="visually-hidden">проверка </span>9</a>.</p>
+              <p><strong>Что исправить</strong> (<a href="#stage-2">этап 2</a>): если бренда нет в справочнике, откладывать смену с понятной записью в журнале, а не падать.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="story" id="story-7">
+          <summary><span class="num p-high">7</span><span class="story-title">Ошибки мимо журнала, пароли в журнале</span><span class="prio p-high">Высокий</span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="story-body">
+            <p>Свои ошибки бухгалтер пишет не в журнал, а на листочек на столе. И пишет «Ошибка: ничего», без бренда, кассы и смены. Зато в журнал попадают логины и пароли арендаторов от Webkassa.</p>
+            <p class="seen"><strong>Что увидят:</strong> при сбое по журналу нельзя понять, что случилось. А логины и пароли арендаторов попадают в журналы — это утечка, их нужно убрать и почистить журналы.</p>
+            <div class="story-foot">
+              <p><strong>Как проверить:</strong> проверка <a href="#check-9"><span class="visually-hidden">проверка </span>9</a>.</p>
+              <p><strong>Что исправить</strong> (<a href="#stage-2">этап 2</a>): убрать пароли и другие секретные данные из журнала, ошибки писать в журнал с брендом, кассой и сменой. Чистка старых журналов — DevOps, инженеры, которые отвечают за серверы и журналы.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="story" id="story-8">
+          <summary><span class="num p-mid">8</span><span class="story-title">Не только продажи</span><span class="prio p-mid">Средний</span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="story-body">
+            <p>Кроме продаж на ленте бывают «покупка», «внесение денег в кассу» (размен) и «изъятие» (инкассация). Бухгалтер записывает всё это в книгу продаж с плюсом. Отчёты такие строки отсеивают по названию операции, а проверка чеков для промо-акций — нет.</p>
+            <p>Поэтому проверка может принять внесение или изъятие денег за покупку и подтвердить в акции чек, которого не было.</p>
+            <p class="seen"><strong>Что увидят:</strong> в промо-акциях проходят чеки, которых не было.</p>
+            <div class="story-foot">
+              <p><strong>Как проверить:</strong> проверка <a href="#check-6"><span class="visually-hidden">проверка </span>6</a>.</p>
+              <p><strong>Что исправить</strong> (<a href="#stage-3">этап 3</a>): записывать как продажи только продажи и возвраты.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="story" id="story-9">
+          <summary><span class="num p-mid">9</span><span class="story-title">Ключи выбивают друг друга</span><span class="prio p-mid">Средний</span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="story-body">
+            <p>В Webkassa у одного логина одна рабочая сессия: каждый новый вход выкидывает предыдущий. Бухгалтер входит заново на каждую кассу и на каждую смену. Если тем же логином пользуется кто-то ещё, сам арендатор или другой сервис, они выкидывают друг друга.</p>
+            <p class="seen"><strong>Что увидят:</strong> бухгалтер молча пропускает смены, а у арендатора может отваливаться его собственная программа.</p>
+            <div class="story-foot">
+              <p><strong>Как проверить:</strong> проверки <a href="#check-2"><span class="visually-hidden">проверка </span>2</a> и <a href="#check-7"><span class="visually-hidden">проверка </span>7</a>.</p>
+              <p><strong>Что исправить</strong> (<a href="#stage-3">этап 3</a>): один вход на учётку за обход.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="story" id="story-10">
+          <summary><span class="num p-mid">10</span><span class="story-title">Новое поле в ответе</span><span class="prio p-mid">Средний</span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="story-body">
+            <p>Ответы Webkassa бухгалтер читает очень строго: увидел незнакомое поле — значит, ответ ошибочный. Для Webkassa добавить в ответ новое поле — обычное безобидное обновление.</p>
+            <p class="seen"><strong>Что увидят:</strong> в день такого обновления импорт молча встанет у всех брендов.</p>
+            <div class="story-foot">
+              <p><strong>Как проверить:</strong> проверки <a href="#check-1"><span class="visually-hidden">проверка </span>1</a> и <a href="#check-9"><span class="visually-hidden">проверка </span>9</a>.</p>
+              <p><strong>Что исправить</strong> (<a href="#stage-3">этап 3</a>): пропускать незнакомые поля в ответах Webkassa, но распознавать ответы с ошибкой.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="story" id="story-11">
+          <summary><span class="num p-mid">11</span><span class="story-title">Кривая дата</span><span class="prio p-mid">Средний</span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="story-body">
+            <p>У одного чека в смене Кофейни дата пришла в непонятном формате. Чеки до него бухгалтер уже сложил в корзину, а этот прочитать не смог и бросил смену без галочки. Чеки до ошибки уедут в книгу вместе со следующей сменой, а чеки после не попадут никогда.</p>
+            <p>Каждый обход начинает смену Кофейни заново и снова спотыкается на том же чеке.</p>
+            <p class="seen"><strong>Что увидят:</strong> у бренда «дыра» в конце смены, обычно это вечерние чеки.</p>
+            <div class="story-foot">
+              <button type="button" class="btn btn-accent" data-scenario="date">Пройти по шагам<span class="visually-hidden"> — история 11 в симуляции</span></button>
+              <p><strong>Как проверить:</strong> проверка <a href="#check-2"><span class="visually-hidden">проверка </span>2</a>.</p>
+              <p><strong>Что исправить</strong> (<a href="#stage-3">этап 3</a>): при кривой дате пропускать один чек с записью в журнал, а не бросать смену.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="story" id="story-12">
+          <summary><span class="num p-low">12</span><span class="story-title">Похожий чек</span><span class="prio p-low">Низкий</span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="story-body">
+            <p>Перед записью бухгалтер проверяет, нет ли в книге чека этого бренда с таким же номером в ту же секунду. С какой кассы этот чек, он не смотрит. Если две кассы одного бренда в одну секунду выбили чеки с одинаковым номером, второй он сочтёт дублем.</p>
+            <p class="seen"><strong>Что увидят:</strong> очень редкая потеря отдельных чеков у брендов с несколькими кассами.</p>
+            <div class="story-foot">
+              <p><strong>Что исправить</strong> (<a href="#stage-3">этап 3</a>): проверять дубль ещё и по кассе.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Checks -->
+  <section class="section" id="checks" aria-labelledby="checks-title">
+    <div class="wrap">
+      <h2 class="section-title" id="checks-title">Как проверить на реальных данных</h2>
+      <div class="prose">
+        <p>В копии кода, которую мы разбирали, этот импорт выключен. Живой импорт, по всей видимости, делает отдельный сервис импорта, а его кода у нас нет. Но пишет он в те же таблицы ASSP: в тетрадь смен, список касс и книгу продаж. Поэтому по данным видно, есть ли эти проблемы в живой системе, даже без его кода.</p>
+        <p>Ниже восемь проверок базы данных для DBA и одна проверка журналов для DevOps — инженеров, которые отвечают за серверы, выкладку и журналы. Сами мы к базе и журналам не подключаемся.</p>
+      </div>
+
+      <h3 class="sub-title">Как выполнять безопасно</h3>
+      <ul class="principles">
+        <li class="principle">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          <strong>Только чтение</strong>
+          <p>Все проверки только читают данные и ничего не меняют.</p>
+        </li>
+        <li class="principle">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          <strong>Лучше всего — на реплике</strong>
+          <p>Реплика — копия базы, открытая только для чтения. Если реплики нет — на основной базе, в нерабочее время, в транзакции только для чтения и с ограничением времени: запрос сам остановится через 30&nbsp;секунд.</p>
+        </li>
+        <li class="principle">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          <strong>Пароли не читаются</strong>
+          <p>Ни одна проверка не читает графу с паролями. В ответ нам нужны только таблицы с результатами.</p>
+        </li>
+        <li class="principle">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M15.5 11.5l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <strong>Проверяют владельцы</strong>
+          <p>Проверки выполняют DBA и DevOps, мы к базе и журналам не подключаемся. Строки журналов не открывают и никуда не копируют — только считают.</p>
+        </li>
+      </ul>
+
+      <h3 class="sub-title">Девять проверок</h3>
+      <ol class="checks">
+
+        <li class="check" id="check-1">
+          <h4 class="check-title"><span class="check-box" aria-hidden="true"></span><span>Проверка 1. Чеки Webkassa по дням</span></h4>
+          <p class="check-meta"><span class="check-who">DBA</span>Ситуации
+            <a class="ref p-crit" href="#story-1"><span class="visually-hidden">история </span>1</a>
+            <a class="ref p-crit" href="#story-2"><span class="visually-hidden">история </span>2</a>
+            <a class="ref p-mid" href="#story-10"><span class="visually-hidden">история </span>10</a></p>
+          <p><span class="lbl">Что ищем.</span> Сколько чеков Webkassa попало в книгу продаж за каждый день последних 90&nbsp;дней и у скольких брендов.</p>
+          <p><span class="lbl">Как читать.</span> Обычно цифры от дня к дню похожи. Если в какой-то день и чеки, и бренды разом упали почти до нуля, импорт в тот день стоял целиком: ситуация 1, 2 или 10. Провал, который потом так и не заполнился, значит, что этих продаж в книге нет до сих пор.</p>
+        </li>
+
+        <li class="check" id="check-2">
+          <h4 class="check-title"><span class="check-box" aria-hidden="true"></span><span>Проверка 2. Смены без галочки</span></h4>
+          <p class="check-meta"><span class="check-who">DBA</span>Ситуации
+            <a class="ref p-crit" href="#story-1"><span class="visually-hidden">история </span>1</a>
+            <a class="ref p-crit" href="#story-2"><span class="visually-hidden">история </span>2</a>
+            <a class="ref p-high" href="#story-5"><span class="visually-hidden">история </span>5</a>
+            <a class="ref p-high" href="#story-6"><span class="visually-hidden">история </span>6</a>
+            <a class="ref p-mid" href="#story-9"><span class="visually-hidden">история </span>9</a>
+            <a class="ref p-mid" href="#story-11"><span class="visually-hidden">история </span>11</a></p>
+          <p><span class="lbl">Что ищем.</span> У каких брендов в тетради есть смены без галочки: сколько их и когда закрыты самая старая и самая новая.</p>
+          <p><span class="lbl">Как читать.</span> В здоровой системе без галочки только смены, закрытые за последние 2–3&nbsp;часа. Смены старше суток у отдельного бренда значат, что его смены застревают: сменили пароль, ключ чужой, бренда нет в справочнике или в чеке кривая дата. Если старые смены висят почти у всех брендов и начинаются с одного дня, с этого дня стоит весь импорт (ситуация 1 или 2).</p>
+        </li>
+
+        <li class="check" id="check-3">
+          <h4 class="check-title"><span class="check-box" aria-hidden="true"></span><span>Проверка 3. Смены, которые обрывают весь обход</span></h4>
+          <p class="check-meta"><span class="check-who">DBA</span>Ситуация
+            <a class="ref p-crit" href="#story-1"><span class="visually-hidden">история </span>1</a></p>
+          <p><span class="lbl">Что ищем.</span> Смены без галочки у брендов, у которых не осталось ни одной активной учётки. Если живой сервис устроен как наш код, на каждой такой смене весь обход обрывается.</p>
+          <p><span class="lbl">Как читать.</span> Пустой результат — хорошо. Любая строка — это бренд, на смене которого импорт может останавливаться для всех.</p>
+        </li>
+
+        <li class="check" id="check-4">
+          <h4 class="check-title"><span class="check-box" aria-hidden="true"></span><span>Проверка 4. Кассы, которые не опрашиваются</span></h4>
+          <p class="check-meta"><span class="check-who">DBA</span>Ситуация
+            <a class="ref p-crit" href="#story-3"><span class="visually-hidden">история </span>3</a></p>
+          <p><span class="lbl">Что ищем.</span> Сначала общая картина: сколько касс в каком статусе — создана, активна, заблокирована ОФД, снята с учёта. Импорт опрашивает только кассы, отмеченные в списке касс как активные. Затем список неактивных касс: когда их записали, были ли по ним смены и когда пришёл последний чек.</p>
+          <p><span class="lbl">Как читать.</span> Касса в статусе «создана» или «заблокирована ОФД» без смен и без чеков — кандидат в «забытые». Её нужно сверить с кабинетом арендатора в Webkassa. Если там касса работает, её продажи в ASSP не попадают.</p>
+        </li>
+
+        <li class="check" id="check-5">
+          <h4 class="check-title"><span class="check-box" aria-hidden="true"></span><span>Проверка 5. Сколько денег не видят Task и часть отчётов</span></h4>
+          <p class="check-meta"><span class="check-who">DBA</span>Ситуация
+            <a class="ref p-crit" href="#story-4"><span class="visually-hidden">история </span>4</a></p>
+          <p><span class="lbl">Что ищем.</span> Чеки Webkassa по месяцам за последний год: сколько всего, сколько без статуса и на какую сумму. Виды операций отбираются так же, как в отчётах. Для сравнения — какой статус ставят другие источники продаж.</p>
+          <p><span class="lbl">Как читать.</span> Если чеков без статуса почти столько же, сколько всего, живой сервис тоже не ставит статус. Тогда сумма чеков без статуса — это деньги за месяц, которых не видят Task и часть отчётов. Именно эта цифра нужна для решения о пересчёте. Сравнение покажет, какой статус ставят остальные источники: такой же нужно ставить и Webkassa.</p>
+        </li>
+
+        <li class="check" id="check-6">
+          <h4 class="check-title"><span class="check-box" aria-hidden="true"></span><span>Проверка 6. Что кроме продаж попадает в книгу</span></h4>
+          <p class="check-meta"><span class="check-who">DBA</span>Ситуация
+            <a class="ref p-mid" href="#story-8"><span class="visually-hidden">история </span>8</a></p>
+          <p><span class="lbl">Что ищем.</span> Какие виды операций Webkassa попали в книгу за последние 3&nbsp;месяца, сколько их и на какую сумму.</p>
+          <p><span class="lbl">Как читать.</span> «Внесение денег в кассу», «Изъятие денег из кассы» и «Покупка» — не продажи. Чем больше таких строк, тем чаще проверка промо-чеков может принять их за настоящий чек.</p>
+        </li>
+
+        <li class="check" id="check-7">
+          <h4 class="check-title"><span class="check-box" aria-hidden="true"></span><span>Проверка 7. Несколько учёток у бренда и повторяющиеся логины</span></h4>
+          <p class="check-meta"><span class="check-who">DBA</span>Ситуации
+            <a class="ref p-high" href="#story-5"><span class="visually-hidden">история </span>5</a>
+            <a class="ref p-mid" href="#story-9"><span class="visually-hidden">история </span>9</a></p>
+          <p><span class="lbl">Что ищем.</span> Бренды, у которых больше одной активной учётки, и логины, которые заведены несколько раз. Пароли проверка не читает.</p>
+          <p><span class="lbl">Как читать.</span> Первый список — бренды, у которых ленту смены могут запросить чужим ключом (ситуация 5). Второй — логины, заведённые несколько раз: каждый вход по такому логину выбивает остальные сессии (ситуация 9).</p>
+        </li>
+
+        <li class="check" id="check-8">
+          <h4 class="check-title"><span class="check-box" aria-hidden="true"></span><span>Проверка 8. Смены с галочкой, но без единого чека</span></h4>
+          <p class="check-meta"><span class="check-who">DBA</span>Ситуация
+            <a class="ref p-high" href="#story-5"><span class="visually-hidden">история </span>5</a></p>
+          <p><span class="lbl">Что ищем.</span> Смены за последние 30&nbsp;дней, которые отмечены как переписанные, но по их кассе в книге нет ни одного чека за время смены.</p>
+          <p><span class="lbl">Как читать.</span> Одна-две такие смены могут быть настоящими: кассу открыли и закрыли без продаж. Но если у одной кассы так подряд много смен, а у соседней кассы того же бренда всё в порядке, её ленту, скорее всего, просят чужим ключом.</p>
+        </li>
+
+        <li class="check" id="check-9">
+          <h4 class="check-title"><span class="check-box" aria-hidden="true"></span><span>Проверка 9. Журналы</span></h4>
+          <p class="check-meta"><span class="check-who">DevOps</span>Ситуации
+            <a class="ref p-crit" href="#story-1"><span class="visually-hidden">история </span>1</a>
+            <a class="ref p-crit" href="#story-2"><span class="visually-hidden">история </span>2</a>
+            <a class="ref p-high" href="#story-6"><span class="visually-hidden">история </span>6</a>
+            <a class="ref p-high" href="#story-7"><span class="visually-hidden">история </span>7</a>
+            <a class="ref p-mid" href="#story-10"><span class="visually-hidden">история </span>10</a></p>
+          <p><span class="lbl">Что ищем.</span> Сколько в журналах записей шести видов. Сами записи не открывают и никуда не копируют — только считают:</p>
+          <ul class="kinds">
+            <li>записи с логинами и паролями арендаторов (ситуация 7);</li>
+            <li>повторные попытки записать уже записанные чеки (2);</li>
+            <li>брошенные смены, у которых потеряна причина ошибки (7);</li>
+            <li>сбои справочника брендов, из-за которых смены отложены (6);</li>
+            <li>ошибки в ответах Webkassa (1, во время сбоев);</li>
+            <li>неудачные входы в Webkassa: неверный пароль или новое поле в ответе (10).</li>
+          </ul>
+          <p><span class="lbl">Как читать.</span> Если записей с логинами и паролями больше нуля, эти журналы нельзя пересылать — их нужно почистить. Если повторных попыток с каждым обходом всё больше, корзина отравлена (ситуация 2). А если не найдётся ни одной записи, возможно, отдельный сервис импорта устроен иначе, чем наша копия. Это тоже полезный ответ.</p>
+        </li>
+
+      </ol>
+
+      <p class="footnote">Готовые запросы для DBA, список строк для поиска в журналах и где их искать — в рабочем документе.</p>
+    </div>
+  </section>
+
+  <!-- 8. Plan -->
+  <section class="section" id="plan" aria-labelledby="plan-title">
+    <div class="wrap">
+      <h2 class="section-title" id="plan-title">Что предлагаем сделать и в каком порядке</h2>
+      <p class="section-lead">Чинить нужно там, где код работает на самом деле. Если живой импорт делает отдельный сервис импорта, правки в нашей копии ASSP в рабочей системе ничего не изменят. Поэтому первый шаг — без кода.</p>
+
+      <ol class="stages">
+
+        <li class="stage" id="stage-0">
+          <span class="stage-dot" aria-hidden="true">0</span>
+          <div class="stage-main">
+            <div class="stage-head"><h3 class="stage-title">Этап 0. Выяснить</h3><span class="stage-sum">без кода</span></div>
+            <ul class="fixes">
+              <li class="fix">
+                <p class="fix-text">Спросить владельцев отдельного сервиса импорта, тот же ли у них код. Отдать проверки из раздела выше DBA и DevOps.</p>
+                <dl class="fix-meta">
+                  <dt>Закрывает</dt><dd>Покажет, что из 12 есть в проде</dd>
+                  <dt>Размер</dt><dd>Без кода</dd>
+                  <dt>Кто</dt><dd>PM, DBA, DevOps</dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="stage" id="stage-1">
+          <span class="stage-dot p-crit" aria-hidden="true">1</span>
+          <div class="stage-main">
+            <div class="stage-head"><h3 class="stage-title">Этап 1. Критичное</h3><span class="stage-sum">ситуации 1–4 · лучше выкладывать одним пакетом</span></div>
+            <ul class="fixes">
+              <li class="fix">
+                <p class="fix-text">Защита от ошибок на всю смену целиком: сбой одной смены пропускает её, а не весь обход</p>
+                <dl class="fix-meta">
+                  <dt>Закрывает</dt><dd><a class="ref p-crit" href="#story-1"><span class="visually-hidden">ситуацию </span>1</a></dd>
+                  <dt>Размер</dt><dd>Маленькая</dd>
+                  <dt>Кто</dt><dd>Разработчик</dd>
+                </dl>
+              </li>
+              <li class="fix">
+                <p class="fix-text">Своя корзина на каждую смену, которая очищается всегда, даже после ошибки</p>
+                <dl class="fix-meta">
+                  <dt>Закрывает</dt><dd><a class="ref p-crit" href="#story-2"><span class="visually-hidden">ситуацию </span>2</a></dd>
+                  <dt>Размер</dt><dd>Маленькая</dd>
+                  <dt>Кто</dt><dd>Разработчик</dd>
+                </dl>
+              </li>
+              <li class="fix">
+                <p class="fix-text">Обновлять статус кассы на каждом обходе, а не только при первой встрече</p>
+                <dl class="fix-meta">
+                  <dt>Закрывает</dt><dd><a class="ref p-crit" href="#story-3"><span class="visually-hidden">ситуацию </span>3</a></dd>
+                  <dt>Размер</dt><dd>Маленькая</dd>
+                  <dt>Кто</dt><dd>Разработчик</dd>
+                </dl>
+              </li>
+              <li class="fix">
+                <p class="fix-text">Ставить статус чекам Webkassa — то же значение, что у других источников</p>
+                <dl class="fix-meta">
+                  <dt>Закрывает</dt><dd><a class="ref p-crit" href="#story-4"><span class="visually-hidden">ситуацию </span>4</a></dd>
+                  <dt>Размер</dt><dd>Маленькая. Решение по старым чекам — за PM</dd>
+                  <dt>Кто</dt><dd>Разработчик, PM</dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="stage" id="stage-2">
+          <span class="stage-dot p-high" aria-hidden="true">2</span>
+          <div class="stage-main">
+            <div class="stage-head"><h3 class="stage-title">Этап 2. Высокое</h3><span class="stage-sum">ситуации 5–7</span></div>
+            <ul class="fixes">
+              <li class="fix">
+                <p class="fix-text">Просить ленту смены ключом той учётки, к которой привязана касса</p>
+                <dl class="fix-meta">
+                  <dt>Закрывает</dt><dd><a class="ref p-high" href="#story-5"><span class="visually-hidden">ситуацию </span>5</a></dd>
+                  <dt>Размер</dt><dd>Маленькая</dd>
+                  <dt>Кто</dt><dd>Разработчик</dd>
+                </dl>
+              </li>
+              <li class="fix">
+                <p class="fix-text">Если бренда нет в справочнике, откладывать смену с понятной записью в журнале, а не падать</p>
+                <dl class="fix-meta">
+                  <dt>Закрывает</dt><dd><a class="ref p-high" href="#story-6"><span class="visually-hidden">ситуацию </span>6</a></dd>
+                  <dt>Размер</dt><dd>Маленькая</dd>
+                  <dt>Кто</dt><dd>Разработчик</dd>
+                </dl>
+              </li>
+              <li class="fix">
+                <p class="fix-text">Убрать пароли и другие секретные данные из журнала, ошибки писать в журнал с брендом, кассой и сменой</p>
+                <dl class="fix-meta">
+                  <dt>Закрывает</dt><dd><a class="ref p-high" href="#story-7"><span class="visually-hidden">ситуацию </span>7</a></dd>
+                  <dt>Размер</dt><dd>Маленькая. Чистка старых журналов — DevOps</dd>
+                  <dt>Кто</dt><dd>Разработчик, DevOps</dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="stage" id="stage-3">
+          <span class="stage-dot p-mid" aria-hidden="true">3</span>
+          <div class="stage-main">
+            <div class="stage-head"><h3 class="stage-title">Этап 3. Остальное</h3><span class="stage-sum">ситуации 8–12</span></div>
+            <ul class="fixes">
+              <li class="fix">
+                <p class="fix-text">Записывать как продажи только продажи и возвраты</p>
+                <dl class="fix-meta">
+                  <dt>Закрывает</dt><dd><a class="ref p-mid" href="#story-8"><span class="visually-hidden">ситуацию </span>8</a></dd>
+                  <dt>Размер</dt><dd>Маленькая</dd>
+                  <dt>Кто</dt><dd>Разработчик, PM</dd>
+                </dl>
+              </li>
+              <li class="fix">
+                <p class="fix-text">Один вход на учётку за обход</p>
+                <dl class="fix-meta">
+                  <dt>Закрывает</dt><dd><a class="ref p-mid" href="#story-9"><span class="visually-hidden">ситуацию </span>9</a></dd>
+                  <dt>Размер</dt><dd>Маленькая</dd>
+                  <dt>Кто</dt><dd>Разработчик</dd>
+                </dl>
+              </li>
+              <li class="fix">
+                <p class="fix-text">Пропускать незнакомые поля в ответах Webkassa, но распознавать ответы с ошибкой</p>
+                <dl class="fix-meta">
+                  <dt>Закрывает</dt><dd><a class="ref p-mid" href="#story-10"><span class="visually-hidden">ситуацию </span>10</a></dd>
+                  <dt>Размер</dt><dd>Маленькая</dd>
+                  <dt>Кто</dt><dd>Разработчик</dd>
+                </dl>
+              </li>
+              <li class="fix">
+                <p class="fix-text">При кривой дате пропускать один чек с записью в журнал, а не бросать смену</p>
+                <dl class="fix-meta">
+                  <dt>Закрывает</dt><dd><a class="ref p-mid" href="#story-11"><span class="visually-hidden">ситуацию </span>11</a></dd>
+                  <dt>Размер</dt><dd>Маленькая</dd>
+                  <dt>Кто</dt><dd>Разработчик</dd>
+                </dl>
+              </li>
+              <li class="fix">
+                <p class="fix-text">Проверять дубль ещё и по кассе</p>
+                <dl class="fix-meta">
+                  <dt>Закрывает</dt><dd><a class="ref p-low" href="#story-12"><span class="visually-hidden">ситуацию </span>12</a></dd>
+                  <dt>Размер</dt><dd>Маленькая</dd>
+                  <dt>Кто</dt><dd>Разработчик</dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="stage" id="stage-4">
+          <span class="stage-dot" aria-hidden="true">4</span>
+          <div class="stage-main">
+            <div class="stage-head"><h3 class="stage-title">Этап 4. Страховка</h3><span class="stage-sum">чтобы поломки не вернулись</span></div>
+            <ul class="fixes">
+              <li class="fix">
+                <p class="fix-text">Сигнал дежурному, если смена без галочки висит дольше двух обходов, то есть 4&nbsp;часов</p>
+                <dl class="fix-meta">
+                  <dt>Закрывает</dt><dd>Ловит будущие поломки</dd>
+                  <dt>Размер</dt><dd>Средняя</dd>
+                  <dt>Кто</dt><dd>DevOps, разработчик</dd>
+                </dl>
+              </li>
+              <li class="fix">
+                <p class="fix-text">Автотесты на все 12 ситуаций в песочнице, где вместо Webkassa стоит заглушка</p>
+                <dl class="fix-meta">
+                  <dt>Закрывает</dt><dd>Не даёт ошибкам вернуться</dd>
+                  <dt>Размер</dt><dd>Средняя</dd>
+                  <dt>Кто</dt><dd>Разработчик</dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+      </ol>
+
+      <div class="after-plan">
+        <div class="card">
+          <h3>Сколько это займёт</h3>
+          <p>Все правки небольшие и сосредоточены в двух местах кода. Больше всего времени уйдёт не на код, а на проверку и выкладку. Сколько именно, зависит от того, кто владеет отдельным сервисом импорта и как его выкладывают.</p>
+        </div>
+        <div class="card">
+          <h3>Что выкладывать вместе</h3>
+          <p>Правки этапа 1 лучше выкладывать одним пакетом. Если починить корзину, но не статус, продажи пойдут в книгу, а Task и часть отчётов их всё равно не увидят. И ещё: после правок 1–3 импорт дотянет застрявшие смены, и старые продажи появятся в книге задним числом.</p>
+        </div>
+        <div class="card card-accent span-2" id="decisions">
+          <h3>Что решить PM</h3>
+          <ol class="decisions">
+            <li>Какой статус ставить чекам Webkassa. Ответ даст <a href="#check-5">проверка 5</a>.</li>
+            <li>Пересчитывать ли прошлые месяцы. Если поставить статус старым чекам, их суммы задним числом появятся в Task и в той части отчётов, которая их сейчас не видит. Если аренда считается от оборота, она тоже изменится. Это нужно согласовать с финансами до запуска.</li>
+            <li>Что делать с внесениями, изъятиями и покупками: не записывать совсем или записывать с пометкой «не продажа».</li>
+            <li>Просить ли арендаторов сменить пароли Webkassa, если журналы с паролями видело много людей.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Glossary -->
+  <section class="section" id="glossary" aria-labelledby="glossary-title">
+    <div class="wrap">
+      <h2 class="section-title" id="glossary-title">Словарь</h2>
+      <p class="section-lead">Слова, которые встречаются на этой странице.</p>
+      <dl class="glossary">
+        <div class="term"><dt>Task</dt><dd>Система, в которую уходят суммы продаж по брендам. От этих сумм зависит аренда.</dd></div>
+        <div class="term"><dt>Галочка</dt><dd>Отметка «смена переписана» в тетради смен. Смену с галочкой импорт больше не открывает.</dd></div>
+        <div class="term"><dt>Дубль</dt><dd>Повторная запись одного и того же чека. Перед записью импорт проверяет, нет ли такого чека в книге продаж.</dd></div>
+        <div class="term"><dt>Журнал</dt><dd>Записи о работе программы с датой, уровнем важности и источником. По ним разбирают сбои.</dd></div>
+        <div class="term"><dt>Защита от ошибок</dt><dd>Правило «если с одной сменой что-то пошло не так, пропусти её и иди дальше». Без него один сбой останавливает весь обход.</dd></div>
+        <div class="term"><dt>Ключ, учётка</dt><dd>Логин и пароль арендатора от его кабинета в Webkassa. Их хранит ASSP, и с ними импорт входит в Webkassa.</dd></div>
+        <div class="term"><dt>Книга продаж</dt><dd>Таблицы продаж ASSP. По ним строятся отчёты и суммы для Task. У каждого чека в книге есть графа «статус»: суммы для Task и часть отчётов берут только строки с заполненным статусом.</dd></div>
+        <div class="term"><dt>Корзина</dt><dd>Общий список чеков в памяти программы. В него импорт складывает чеки смены перед записью в книгу.</dd></div>
+        <div class="term"><dt>Лента смены</dt><dd>Отчёт Webkassa со всеми операциями одной смены одной кассы.</dd></div>
+        <div class="term"><dt>ОФД</dt><dd>Оператор фискальных данных: компания, через которую каждый чек уходит в налоговую. Если касса долго не передаёт чеки, ОФД её блокирует.</dd></div>
+        <div class="term"><dt>Реплика</dt><dd>Копия базы данных, открытая только для чтения.</dd></div>
+        <div class="term"><dt>Справочник брендов</dt><dd>Отдельный сервис с данными брендов: название и номер в Task.</dd></div>
+        <div class="term"><dt>Статус кассы</dt><dd>Состояние кассы в Webkassa: создана, активна, заблокирована ОФД или снята с учёта. Импорт опрашивает только кассы, которые в его списке касс отмечены как активные, а отметку ставит один раз, при первой встрече с кассой, и больше не обновляет.</dd></div>
+        <div class="term"><dt>Тетрадь смен</dt><dd>Таблица закрытых смен в ASSP: какие уже переписаны, а какие ещё нет.</dd></div>
+        <div class="term"><dt>Токен</dt><dd>Временный пропуск, который Webkassa выдаёт после входа.</dd></div>
+        <div class="term"><dt>Транзакция только для чтения</dt><dd>Режим базы, в котором запрос не может ничего изменить.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 10. Caveats -->
+  <section class="section" id="caveats" aria-labelledby="caveats-title">
+    <div class="wrap">
+      <h2 class="section-title" id="caveats-title">Оговорки и источники</h2>
+      <ul class="caveats">
+        <li><strong>Что разбирали.</strong> Тестовую копию кода ASSP по состоянию на 20.10.2026. Всё на этой странице — результат чтения этой копии и открытых описаний Webkassa, о которых ниже. Код рабочей системы нам недоступен и может от неё отличаться.</li>
+        <li><strong>Ничего не запускали.</strong> Ни ASSP, ни запросов к Webkassa, ни к рабочей базе. Рабочую систему мы не трогали.</li>
+        <li><strong>Живой сервис импорта мы не видели.</strong> В разобранной копии импорт Webkassa выключен: запуск по расписанию отключён, а ручные кнопки пересылают запросы в отдельный сервис импорта. Всё, что сказано о живой системе, — вывод по аналогии. Его нужно подтвердить у владельцев сервиса и проверками из раздела «Как проверить на реальных данных».</li>
+        <li><strong>Поведение Webkassa</strong> взято из неофициальных открытых источников. Официальная документация лежит в кабинете интегратора Webkassa. С ней стоит сверить четыре вещи:
+          <ul class="verify-list">
+            <li><span class="check-box" aria-hidden="true"></span><span>коды статусов кассы;</span></li>
+            <li><span class="check-box" aria-hidden="true"></span><span>ответ на неверный пароль;</span></li>
+            <li><span class="check-box" aria-hidden="true"></span><span>срок жизни токена;</span></li>
+            <li><span class="check-box" aria-hidden="true"></span><span>ответ на запрос ленты чужой кассы.</span></li>
+          </ul>
+        </li>
+        <li><strong>Источники по API Webkassa</strong> — открытые неофициальные описания API. Ссылки на них — в рабочем документе.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Подготовлено <time datetime="2026-11-04">04.11.2026</time> · только для внутреннего использования</p>
+  </div>
+</footer>
+</body>
+</html>
